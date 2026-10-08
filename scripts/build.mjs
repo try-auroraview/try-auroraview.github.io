@@ -17,19 +17,22 @@ await copyFile(resolve(root, 'data/ecosystem.json'), resolve(output, 'data/ecosy
 await mkdir(resolve(output, 'assets/fonts'), { recursive: true });
 await copyFile(resolve(root, 'node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2'), resolve(output, 'assets/fonts/geist.woff2'));
 for (const name of ['hero', 'why', 'interface-case']) {
-  for (const width of [720, 1200, 1774]) {
+  for (const width of [720, 900, 1200, 1774]) {
     await sharp(resolve(root, `public/assets/source/${name}.png`)).resize({ width }).webp({ quality: 84 }).toFile(resolve(output, `assets/${name}-${width}.webp`));
   }
 }
 await sharp(resolve(root, 'public/assets/source/hero.png')).resize(1200, 630, { fit: 'contain', background: '#f6f7f5' }).png().toFile(resolve(output, 'assets/og.png'));
 await sharp(resolve(root, 'public/assets/source/gallery.png')).resize({ width: 1280 }).webp({ quality: 90 }).toFile(resolve(output, 'assets/gallery.webp'));
 await sharp(resolve(root, 'public/assets/source/architecture-original.png')).webp({ quality: 90 }).toFile(resolve(output, 'assets/architecture-original.webp'));
-await copyFile(resolve(root, 'public/assets/logo-original.png'), resolve(output, 'favicon.png'));
+for (const width of [72, 184]) {
+  await sharp(resolve(root, 'public/assets/logo-original.png')).resize({ width }).webp({ lossless: true }).toFile(resolve(output, `assets/logo-${width}.webp`));
+}
+await sharp(resolve(root, 'public/assets/logo-original.png')).resize({ width: 64 }).png().toFile(resolve(output, 'favicon.png'));
 await renderDiagrams(resolve(output, 'assets'));
 
 const escape = (value) => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 const a = (url, label, cls = '') => `<a${cls ? ` class="${cls}"` : ''} href="${url}">${label}</a>`;
-const picture = (name, alt, eager = false) => `<img src="/assets/${name}-1200.webp" srcset="/assets/${name}-720.webp 720w, /assets/${name}-1200.webp 1200w, /assets/${name}-1774.webp 1774w" sizes="(max-width: 767px) 100vw, (max-width: 1200px) 75vw, 1000px" width="1774" height="887" alt="${escape(alt)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
+const picture = (name, alt, eager = false) => `<img src="/assets/${name}-900.webp" srcset="/assets/${name}-720.webp 720w, /assets/${name}-900.webp 900w, /assets/${name}-1200.webp 1200w, /assets/${name}-1774.webp 1774w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 900px) calc(100vw - 72px), (max-width: 1200px) 54vw, ${eager ? '741px' : '648px'}" width="1774" height="887" alt="${escape(alt)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
 const code = (c, label, value, id, language) => `<div class="code-block"><div class="code-head"><span>${label}</span><button class="copy" type="button" data-copy="${id}" data-success="${c.copied}" data-failure="${c.copyFailed}">${c.copy}</button></div><pre><code id="${id}" class="language-${language}">${escape(value)}</code></pre><span class="copy-status" role="status" aria-live="polite"></span></div>`;
 
 function document(c, path, body) {
@@ -54,9 +57,9 @@ function document(c, path, body) {
 <script type="application/ld+json">${JSON.stringify(organization)}</script><script src="/site.js" defer></script>
 </head><body>
 <a class="skip" href="#main">${c.skip}</a>
-<header class="header"><div class="nav-wrap"><a class="brand" href="${home}" aria-label="AuroraView"><span class="brand-symbol"><img class="original-brand" src="/assets/logo-original.png" width="36" height="36" alt=""></span><span>AuroraView</span></a><nav aria-label="${c.lang === 'en' ? 'Main navigation' : '主导航'}">${['why', 'architecture', 'projects', 'start'].map((id, i) => a(`${path === home ? '' : home}#${id}`, c.nav[i])).join('')}</nav><div class="preferences">${a(otherPath, c.otherLabel, 'locale')}<button class="theme" aria-label="${c.theme}" data-light="${c.light}" data-dark="${c.dark}" type="button">${c.dark}</button></div></div></header>
+<header class="header"><div class="nav-wrap"><a class="brand" href="${home}" aria-label="AuroraView"><span class="brand-symbol"><img class="original-brand" src="/assets/logo-72.webp" width="72" height="71" alt=""></span><span>AuroraView</span></a><nav aria-label="${c.lang === 'en' ? 'Main navigation' : '主导航'}">${['why', 'architecture', 'projects', 'start'].map((id, i) => a(`${path === home ? '' : home}#${id}`, c.nav[i])).join('')}</nav><div class="preferences">${a(otherPath, c.otherLabel, 'locale')}<button class="theme" aria-label="${c.theme}" data-light="${c.light}" data-dark="${c.dark}" type="button">${c.dark}</button></div></div></header>
 ${body}
-<footer class="footer container"><div><a class="footer-brand" href="${home}" aria-label="AuroraView"><img class="original-brand" src="/assets/logo-original.png" width="92" height="91" alt="AuroraView"></a><p>${c.footer}</p></div><div class="footer-links">${a(links.organization, 'GitHub')}${a(links.docs + (c.lang === 'en' ? '' : 'zh/'), c.lang === 'en' ? 'Documentation' : '文档')}${a(c.lang === 'en' ? '/media/' : '/zh/media/', c.credits)}</div><p class="privacy">${c.privacy}</p></footer>
+<footer class="footer container"><div><a class="footer-brand" href="${home}" aria-label="AuroraView"><img class="original-brand" src="/assets/logo-184.webp" width="184" height="181" alt="AuroraView"></a><p>${c.footer}</p></div><div class="footer-links">${a(links.organization, 'GitHub')}${a(links.docs + (c.lang === 'en' ? '' : 'zh/'), c.lang === 'en' ? 'Documentation' : '文档')}${a(c.lang === 'en' ? '/media/' : '/zh/media/', c.credits)}</div><p class="privacy">${c.privacy}</p></footer>
 </body></html>`;
 }
 

@@ -7,6 +7,9 @@ const dist = resolve(import.meta.dirname, '../dist');
 const brand = JSON.parse(await readFile(resolve(dist, 'assets/brand-source.json'), 'utf8'));
 const brandHash = createHash('sha256').update(await readFile(resolve(dist, brand.websiteAsset))).digest('hex');
 assert.equal(brandHash, brand.sha256, 'Published brand must match the original repository PNG');
+for (const name of ['logo-72.webp', 'logo-184.webp']) {
+  assert((await stat(resolve(dist, 'assets', name))).size < 30000, `${name}: display-size brand image budget exceeded`);
+}
 await assert.rejects(access(resolve(dist, 'assets/brand')), { code: 'ENOENT' }, 'Draft redraw assets must stay outside the public build');
 for (const page of ['index.html', 'zh/index.html', 'media/index.html', 'zh/media/index.html', 'ecosystem/index.html', 'zh/ecosystem/index.html', 'how-it-works/index.html', 'zh/how-it-works/index.html']) {
   const html = await readFile(resolve(dist, page), 'utf8');

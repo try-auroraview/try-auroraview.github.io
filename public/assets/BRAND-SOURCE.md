@@ -1,6 +1,6 @@
 # AuroraView original brand source
 
-The website uses the existing AuroraView repository artwork without reconstructing its geometry or changing its colors. A CSS white backing keeps the original PNG legible in both themes.
+The website uses the existing AuroraView repository artwork without reconstructing its geometry or changing its colors. Display-size derivatives are resized from that PNG and encoded as lossless WebP; the original PNG remains available unchanged. A CSS white backing keeps the artwork legible in both themes.
 
 - [Canonical source](https://github.com/try-auroraview/auroraview/blob/2212459651b7eee39645755fc09fa600667148b2/assets/icons/auroraview-logo-text.png): `assets/icons/auroraview-logo-text.png`.
 - Identical repository copy: `docs/public/logo.png`.

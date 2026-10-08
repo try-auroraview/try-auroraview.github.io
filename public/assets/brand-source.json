@@ -14,6 +14,6 @@
     "sha256": "d57a81904d71a91b15b1e216c4b29d96a9936bf02f43cd1ab48a75435cd37908",
     "sourceUrl": "https://github.com/try-auroraview/auroraview/blob/2212459651b7eee39645755fc09fa600667148b2/assets/images/auroraview-logo.png"
   },
-  "rendering": "Original PNG geometry and colors, with a CSS white backing for both website themes.",
+  "rendering": "Original PNG geometry and colors, resized to display-size lossless WebP derivatives with a CSS white backing for both website themes. The original PNG is published unchanged.",
   "sourceFormat": "PNG; no original editable SVG, AI, EPS, or Blender source was identified in the inspected repository references."
 }

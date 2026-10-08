@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 const root = resolve(import.meta.dirname, '..');
 const digest = (data) => createHash('sha256').update(data).digest('hex');
 const records = [];
-for (const path of ['/', '/zh/', '/media/', '/zh/media/', '/ecosystem/', '/zh/ecosystem/', '/how-it-works/', '/zh/how-it-works/', '/data/ecosystem.json', '/styles.css', '/site.js', '/assets/logo-original.png', '/favicon.png', '/assets/brand-source.json', '/assets/BRAND-SOURCE.md', '/assets/hero-1200.webp', '/assets/architecture-original.webp', '/assets/architecture.drawio', '/assets/architecture-en.svg', '/assets/architecture-zh.png', '/assets/architecture-proposed.drawio', '/assets/architecture-proposed-zh.svg', '/assets/architecture-proposed-zh.png', '/sitemap.xml', '/llms.txt']) {
+for (const path of ['/', '/zh/', '/media/', '/zh/media/', '/ecosystem/', '/zh/ecosystem/', '/how-it-works/', '/zh/how-it-works/', '/data/ecosystem.json', '/styles.css', '/site.js', '/assets/logo-original.png', '/assets/logo-72.webp', '/assets/logo-184.webp', '/favicon.png', '/assets/brand-source.json', '/assets/BRAND-SOURCE.md', '/assets/hero-1200.webp', '/assets/architecture-original.webp', '/assets/architecture.drawio', '/assets/architecture-en.svg', '/assets/architecture-zh.png', '/assets/architecture-proposed.drawio', '/assets/architecture-proposed-zh.svg', '/assets/architecture-proposed-zh.png', '/sitemap.xml', '/llms.txt']) {
   const file = path.endsWith('/') ? `${path}index.html` : path;
   const local = await readFile(resolve(root, 'dist', '.' + file));
   const response = await fetch(`https://try-auroraview.github.io${path}?verify=${digest(local).slice(0, 12)}`, { signal: AbortSignal.timeout(30000) });
