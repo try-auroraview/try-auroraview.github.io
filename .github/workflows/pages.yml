@@ -1,0 +1,47 @@
+name: Validate and deploy website
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: loonghao/vx@6948178844826716e636b474ab322dd8dc115578
+        with:
+          version: '0.9.35'
+          tools: 'node@22.23.3 just'
+          github-token: ${{ github.token }}
+      - run: vx just install
+      - run: vx just check
+      - run: vx just browser
+      - run: vx just audit
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: website-quality-reports
+          path: reports/
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
