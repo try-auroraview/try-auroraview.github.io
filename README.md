@@ -22,17 +22,22 @@ Use `vx just refresh` when intentionally updating dependencies and their lockfil
 
 ## Editing
 
-- `src/content.mjs`: English and Chinese copy, project map, validation status, tutorial destinations, and code examples.
+- `src/content.mjs`: English and Chinese product copy, shared source links, tutorial destinations, and quick-start examples.
+- `data/ecosystem.json`: the dated DCC-MCP catalog and per-host AuroraView evidence. Every host has seven responsibilities; a missing AuroraView record defaults to an ecosystem target. Update this data when host evidence changes.
+- `src/ecosystem.mjs`: joins catalog entries with explicit integration records. `src/pages.mjs` renders native keyboard-accessible host details on the homepage and complete matrix pages.
+- `src/principles.mjs`: source-backed bilingual execution flow, communication directions, stack boundaries, and lifecycle explanation.
 - `src/styles.css`: shared semantic tokens, responsive layouts, system theme, and reduced-motion behavior.
 - `public/assets/architecture.drawio`: editable native draw.io source for the current architecture. `architecture-proposed.drawio` separately describes the planned shared runtime with DCC-MCP Core. The build generates both locales as SVG and PNG with the editable model embedded in SVG. Keep the semantic HTML descriptions aligned with their model and status.
-- `public/assets/source/`: original project illustrations and the existing Gallery sample. `scripts/build.mjs` produces responsive compressed assets.
+- `public/assets/source/`: project concept illustrations, the existing Gallery sample, and the main repository’s original layer diagram. `scripts/build.mjs` produces responsive compressed assets.
 
 Use project source and dated validation records for technical claims. Source availability, unit tests, native builds, live-host launch, interactive demonstrations, and releases are distinct evidence gates. Never infer complete support from a repository name or a passing unit test. Update both locales together when evidence changes.
 
-The source PNGs are concept illustrations except for the existing Gallery sample. Credits and licensing are described at `/media/` and `/zh/media/`. They are never presented as proof of a new host integration.
+The DCC material workspace hero is a generated concept illustration, labeled as a target experience rather than a runtime capture. Its pictured action is illustrative and is not part of the current adapter tool list. The Gallery and original architecture diagram are existing repository assets. Credits and licensing are described at `/media/` and `/zh/media/`.
+
+Headless automation covers 12 homepage combinations (two locales, two themes, three widths), 16 matrix/principles combinations (two locales, two themes, two widths), and two normal-motion smoke tests. It checks keyboard host-detail toggles, locale routing, image decoding, horizontal overflow, and axe accessibility. Lighthouse reports cover the homepages. These are independent test processes and do not certify native DCC-CUA or host interaction.
 
 ## Deployment
 
-The repository uses GitHub Pages with the Actions source. Pushes to `main` and manual workflow dispatches validate and deploy. Pull requests validate without deploying. The public build includes `/`, `/zh/`, `/media/`, `/zh/media/`, `/llms.txt`, and `/sitemap.xml`.
+The repository uses GitHub Pages with the Actions source. Pushes to `main` and manual workflow dispatches validate and deploy. Pull requests validate without deploying. The public build includes `/`, `/zh/`, bilingual `/ecosystem/`, `/how-it-works/`, and `/media/` pages, `/data/ecosystem.json`, `/llms.txt`, and `/sitemap.xml`.
 
 Read back the public URLs and verify the Pages deployment SHA before claiming delivery. Headless automation is recorded separately from any native DCC-CUA browser or host acceptance.

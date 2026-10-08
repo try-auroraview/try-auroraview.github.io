@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-09",
+  "catalog": {
+    "origin": "Installed DCC-MCP plugin 0.19.96 PRODUCTS.json snapshot",
+    "sourceUrl": "https://github.com/dcc-mcp/dcc-mcp-core/blob/8450345113745beebc36684316390f90e515c4a1/dcc-mcp-catalog.yml",
+    "checkedAt": "2026-09-02",
+    "repositoriesCheckedAt": "2026-09-03",
+    "releasedCli": { "version": "0.20.21", "checkedAt": "2026-08-27", "commit": "e8d070fd703164a380895af2d6b4e17b3cb2459c" },
+    "products": [
+      { "id": "3dsmax", "name": "Autodesk 3ds Max", "adapter": "dcc-mcp-3dsmax", "install": true },
+      { "id": "aftereffects", "name": "Adobe After Effects", "adapter": "dcc-mcp-aftereffects", "install": true },
+      { "id": "blender", "name": "Blender", "adapter": "dcc-mcp-blender", "install": true },
+      { "id": "c4d", "name": "Cinema 4D", "adapter": "dcc-mcp-cinema4d", "install": true },
+      { "id": "comfyui", "name": "ComfyUI", "adapter": "dcc-mcp-comfyui", "install": true },
+      { "id": "freecad", "name": "FreeCAD", "adapter": "dcc-mcp-freecad", "install": true },
+      { "id": "gimp", "name": "GIMP", "adapter": "dcc-mcp-gimp", "install": true },
+      { "id": "godot", "name": "Godot Engine", "adapter": "dcc-mcp-godot", "install": true },
+      { "id": "houdini", "name": "SideFX Houdini", "adapter": "dcc-mcp-houdini", "install": true },
+      { "id": "illustrator", "name": "Adobe Illustrator", "adapter": "dcc-mcp-illustrator", "install": true },
+      { "id": "katana", "name": "Foundry Katana", "adapter": "dcc-mcp-katana", "install": true },
+      { "id": "krita", "name": "Krita", "adapter": "dcc-mcp-krita", "install": true },
+      { "id": "mari", "name": "Foundry Mari", "adapter": "dcc-mcp-mari", "install": true },
+      { "id": "marmoset", "name": "Marmoset Toolbag", "adapter": "dcc-mcp-marmoset", "install": true },
+      { "id": "material-maker", "name": "Material Maker", "adapter": "dcc-mcp-material-maker", "install": false },
+      { "id": "maya", "name": "Autodesk Maya", "adapter": "dcc-mcp-maya", "install": true },
+      { "id": "mobu", "name": "Autodesk MotionBuilder", "adapter": "dcc-mcp-mobu", "install": true },
+      { "id": "nuke", "name": "Foundry Nuke", "adapter": "dcc-mcp-nuke", "install": true },
+      { "id": "openscad", "name": "OpenSCAD", "adapter": "dcc-mcp-openscad", "install": true },
+      { "id": "openusd", "name": "OpenUSD", "adapter": "dcc-mcp-openusd", "install": true },
+      { "id": "photoshop", "name": "Adobe Photoshop", "adapter": "dcc-mcp-photoshop", "install": true },
+      { "id": "powerpoint", "name": "Microsoft PowerPoint", "adapter": "dcc-mcp-PowerPoint", "install": false },
+      { "id": "premiere", "name": "Adobe Premiere Pro", "adapter": "dcc-mcp-premiere", "install": true },
+      { "id": "renderdoc", "name": "RenderDoc", "adapter": "dcc-mcp-renderdoc", "install": true },
+      { "id": "shogun", "name": "Vicon Shogun", "adapter": "dcc-mcp-shogun", "install": true },
+      { "id": "shotgrid", "name": "Autodesk Flow Production Tracking", "adapter": "dcc-mcp-fpt", "install": true },
+      { "id": "sketchup", "name": "SketchUp", "adapter": "dcc-mcp-sketchup", "install": true },
+      { "id": "substance3d_designer", "name": "Adobe Substance 3D Designer", "adapter": "dcc-mcp-substance3d-designer", "install": true },
+      { "id": "substance3d_painter", "name": "Adobe Substance 3D Painter", "adapter": "dcc-mcp-substance3d-painter", "install": true },
+      { "id": "tiled", "name": "Tiled Map Editor", "adapter": "dcc-mcp-tiled", "install": false },
+      { "id": "touchdesigner", "name": "TouchDesigner", "adapter": "dcc-mcp-touchdesigner", "install": true },
+      { "id": "unity", "name": "Unity Editor", "adapter": "dcc-mcp-unity", "install": true },
+      { "id": "unreal", "name": "Unreal Engine", "adapter": "dcc-mcp-unreal", "install": true },
+      { "id": "wwise", "name": "Audiokinetic Wwise", "adapter": "dcc-mcp-wwise", "install": false },
+      { "id": "zbrush", "name": "ZBrush", "adapter": "dcc-mcp-zbrush", "install": true }
+    ],
+    "applicationRoutes": [
+      { "id": "obs", "name": "OBS Studio", "adapter": "dcc-mcp-obs", "install": true },
+      { "id": "liquigen", "name": "LiquiGen", "adapter": "dcc-mcp-liquigen", "install": true },
+      { "id": "office-suite", "name": "Microsoft Office", "adapter": "dcc-mcp-office", "install": false }
+    ]
+  },
+  "focus": ["maya", "blender", "unreal", "unity", "houdini", "nuke"],
+  "gates": [
+    { "id": "native", "en": "AuroraView native UI / dock", "zh": "AuroraView 原生界面 / 停靠" },
+    { "id": "dccMcp", "en": "DCC-MCP host adapter", "zh": "DCC-MCP 宿主适配器" },
+    { "id": "contract", "en": "Shared capability / Agent contract", "zh": "共用能力 / Agent 契约" },
+    { "id": "example", "en": "Runnable example / installation", "zh": "可运行示例 / 安装" },
+    { "id": "scene", "en": "Scene readback", "zh": "场景回读" },
+    { "id": "cleanup", "en": "Cleanup and ownership", "zh": "资源清理与所有权" },
+    { "id": "verification", "en": "Actual verification", "zh": "实际验证" }
+  ],
+  "statusLabels": {
+    "catalog": { "en": "Catalog reference", "zh": "目录收录" },
+    "source": { "en": "Source available", "zh": "已有源码" },
+    "preview": { "en": "Preview / acceptance in progress", "zh": "预览 / 验收中" },
+    "observed": { "en": "Observed within stated scope", "zh": "限定范围已观察" },
+    "pending": { "en": "Acceptance pending", "zh": "待验收" },
+    "blocked": { "en": "Known issue remains", "zh": "存在待修问题" },
+    "target": { "en": "Ecosystem target", "zh": "生态建设目标" }
+  },
+  "defaults": {
+    "native": { "status": "target", "en": "An AuroraView native entry and dock have no independent evidence recorded in this matrix.", "zh": "本矩阵尚未记录 AuroraView 原生入口与停靠的独立证据。" },
+    "contract": { "status": "target", "en": "Host-specific page calls, events, and explicit Agent tools remain integration work.", "zh": "对应宿主的页面调用、事件与显式 Agent 工具仍需配套集成。" },
+    "example": { "status": "target", "en": "A host-specific AuroraView installation and runnable example remain ecosystem work.", "zh": "对应宿主的 AuroraView 安装说明与可运行示例仍需配套。" },
+    "scene": { "status": "target", "en": "No AuroraView scene-state readback is recorded here.", "zh": "这里尚未记录 AuroraView 的场景状态回读。" },
+    "cleanup": { "status": "target", "en": "Owned and borrowed resource cleanup needs host-specific acceptance.", "zh": "自有与借用资源的清理需要逐宿主验收。" },
+    "verification": { "status": "target", "en": "Catalog presence is not AuroraView host acceptance.", "zh": "目录收录不代表 AuroraView 宿主验收通过。" }
+  },
+  "integrations": {
+    "maya": {
+      "repository": "https://github.com/try-auroraview/auroraview-maya",
+      "native": { "status": "source", "en": "Qt host adapter source is available; current native docking and UI acceptance remain pending.", "zh": "已有 Qt 宿主适配源码；本轮原生停靠与界面验收仍待完成。" },
+      "contract": { "status": "source", "en": "Merged Outliner source provides explicit page calls and events with tested scene contracts. Shared DCC-MCP Core attachment and Agent discovery remain pending.", "zh": "已合并的 Outliner 源码提供显式页面调用与事件，并有场景契约测试；共享 DCC-MCP Core 附着与 Agent 发现仍待实现。" },
+      "example": { "status": "source", "url": "https://github.com/try-auroraview/auroraview-maya-outliner/commit/59439e050ab58b37b57b6507cf3823a2458ff98c", "en": "The refreshed runnable tutorial is merged. Frontend build and reproducible source archive checks passed; interactive installation still needs acceptance.", "zh": "刷新后的可运行教程已经合并。前端构建和可复现源码包检查通过；交互式安装仍待验收。" },
+      "scene": { "status": "observed", "en": "Eight Maya 2026 mayapy scene checks passed, including full DAG identity, selection, visibility, and callback removal. This does not exercise an interactive WebView.", "zh": "Maya 2026 mayapy 的 8 项场景检查通过，覆盖完整 DAG 身份、选择、可见性和回调移除；这些检查未运行交互式 WebView。" },
+      "cleanup": { "status": "observed", "en": "All 10 callbacks were released in the Maya scene smoke. Failure-tolerant teardown has tests; interactive WebView close/reopen remains pending.", "zh": "Maya 场景检查释放了全部 10 个回调；异常容错清理已有测试，交互式 WebView 关闭重开仍待验收。" },
+      "verification": { "status": "observed", "url": "https://github.com/try-auroraview/auroraview-maya-outliner/blob/59439e050ab58b37b57b6507cf3823a2458ff98c/docs/VALIDATION.md", "en": "Merged revision 59439e0: frontend build, 34 unit tests, eight Maya 2026 scene checks, and source archive verification passed. UI, WebView, native dock, and Core integration are not accepted.", "zh": "已合并版本 59439e0：前端构建、34 项单元测试、8 项 Maya 2026 场景检查及源码包验证通过。界面、WebView、原生停靠与 Core 集成尚未验收。" }
+    },
+    "blender": {
+      "repository": "https://github.com/try-auroraview/auroraview-blender",
+      "native": { "status": "preview", "en": "A real HTML WebView path has been observed. Full native input, DPI, and docking acceptance are still in progress.", "zh": "已观察到真实 HTML WebView 路径；完整原生输入、DPI 与停靠验收仍在推进。" },
+      "contract": { "status": "preview", "en": "HTML and scene interaction have been observed. The explicit Agent contract and shared runtime integration are tracked separately.", "zh": "已观察到 HTML 与场景交互；显式 Agent 契约和共享运行时整合分别跟踪。" },
+      "example": { "status": "preview", "en": "Follow the add-on repository for current install and demo instructions and their host-version limits.", "zh": "按插件仓库当前安装与演示说明操作，并核对对应宿主版本范围。" },
+      "scene": { "status": "observed", "en": "Real HTML / scene interaction exists; further scenarios need explicit state readback.", "zh": "已有真实 HTML / 场景交互；更多场景仍需明确状态回读。" },
+      "cleanup": { "status": "pending", "en": "Full input, DPI, close/reopen, and cleanup acceptance is in progress.", "zh": "完整输入、DPI、关闭重开和资源清理验收进行中。" },
+      "verification": { "status": "observed", "en": "HTML and scene interaction observed; complete native-host acceptance remains open.", "zh": "已观察 HTML 与场景交互；完整原生宿主验收尚未闭合。" }
+    },
+    "unreal": {
+      "repository": "https://github.com/try-auroraview/auroraview-unreal",
+      "native": { "status": "blocked", "en": "The latest native demo still docks incorrectly and needs correction.", "zh": "最近一次原生演示的停靠位置仍不正确，需要修复。" },
+      "contract": { "status": "pending", "en": "Page and Agent must reuse declared host capabilities; the current end-to-end contract awaits acceptance.", "zh": "页面与 Agent 应复用已声明宿主能力；当前端到端契约待验收。" },
+      "example": { "status": "source", "en": "Plugin install and demo source are available; the latest dock demonstration still needs a fix.", "zh": "已有插件安装与演示源码；最近一次停靠演示仍需修复。" },
+      "scene": { "status": "pending", "en": "Scene readback for the corrected native dock demo is pending.", "zh": "修正原生停靠演示后的场景回读待完成。" },
+      "cleanup": { "status": "pending", "en": "Host lifecycle and repeatable close/reopen need native acceptance.", "zh": "宿主生命周期与重复关闭重开仍需原生验收。" },
+      "verification": { "status": "preview", "en": "UE 5.7 and 5.8 native builds passed. The latest dock demo is incorrect; full acceptance is incomplete.", "zh": "UE 5.7 与 5.8 原生构建通过。最近的停靠演示仍不正确，完整验收尚未完成。" }
+    },
+    "unity": {
+      "repository": "https://github.com/try-auroraview/auroraview-unity",
+      "native": { "status": "preview", "en": "Windows x64 EditorWindow / child-HWND WebView2 source is public. Native WebView smoke passed; Unity Editor docking acceptance is in progress.", "zh": "Windows x64 EditorWindow / 子 HWND WebView2 源码已公开。原生 WebView smoke 通过；Unity Editor 停靠验收进行中。" },
+      "contract": { "status": "source", "en": "Reuses the AuroraView JavaScript bridge. An opt-in stdio / named-pipe adapter is a preview example; DCC-MCP Core attachment is planned.", "zh": "复用 AuroraView JavaScript 桥。显式启用的 stdio / named-pipe 适配器是预览示例；DCC-MCP Core 附着仍属计划。" },
+      "example": { "status": "source", "en": "Public README and minimal Unity project provide a Windows Editor preview installation path.", "zh": "公开 README 与最小 Unity 项目提供 Windows Editor 预览安装路径。" },
+      "scene": { "status": "pending", "en": "Seven Unity 2022.3 Editor tests passed. Browser-to-scene and MCP-to-Editor end-to-end state readback remain pending.", "zh": "Unity 2022.3 的 7 项 Editor 测试通过；浏览器到场景及 MCP 到 Editor 的端到端状态回读仍待完成。" },
+      "cleanup": { "status": "observed", "en": "Native STA shutdown, current-user pipe access, exclusive ownership, and endpoint close/reopen checks passed. Interactive docking and lifecycle acceptance remain open.", "zh": "原生 STA 关闭、当前用户管道权限、独占所有权及端点关闭重开检查通过；交互式停靠与生命周期验收仍待完成。" },
+      "verification": { "status": "preview", "en": "Native DLL build, nine Node tests, native WebView2 HWND / IPC / STA and pipe checks, and seven Editor tests passed. End-to-end host acceptance and release publication remain pending.", "zh": "原生 DLL 构建、9 项 Node 测试、原生 WebView2 HWND / IPC / STA 与管道检查、7 项 Editor 测试通过；端到端宿主验收与发布仍待完成。" }
+    },
+    "houdini": {
+      "repository": "https://github.com/try-auroraview/auroraview-houdini",
+      "native": { "status": "source", "en": "Houdini host adapter source is available; native UI and docking need version-specific acceptance.", "zh": "已有 Houdini 宿主适配源码；原生界面与停靠需对应版本验收。" },
+      "example": { "status": "source", "en": "Use the adapter repository for installation and host prerequisites; a runnable-host result is not recorded here.", "zh": "按适配器仓库查看安装和宿主前置要求；这里尚未记录可运行宿主结果。" },
+      "verification": { "status": "source", "en": "Adapter source is available; real-host interaction and cleanup are not assessed in this review.", "zh": "已有适配器源码；本轮尚未评估真实宿主交互与资源清理。" }
+    },
+    "nuke": {
+      "repository": "https://github.com/try-auroraview/auroraview-nuke",
+      "native": { "status": "source", "en": "Nuke host adapter and dispatcher source are available; native UI acceptance is version-specific.", "zh": "已有 Nuke 宿主适配与调度器源码；原生界面验收需对应具体版本。" },
+      "example": { "status": "source", "en": "Use the adapter repository for installation and dispatcher requirements; a current live-host example is not verified here.", "zh": "按适配器仓库查看安装与调度要求；这里尚未验证当前真实宿主示例。" },
+      "verification": { "status": "source", "en": "Adapter source is available; scene readback and lifecycle acceptance are not assessed in this review.", "zh": "已有适配器源码；本轮尚未评估场景回读与生命周期验收。" }
+    }
+  }
+}

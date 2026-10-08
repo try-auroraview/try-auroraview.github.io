@@ -67,6 +67,45 @@ try {
     assert.equal(await page.locator('.hero-copy').evaluate((element) => getComputedStyle(element).opacity), '1');
     await context.close();
   }
+  for (const path of ['/ecosystem/', '/zh/ecosystem/', '/how-it-works/', '/zh/how-it-works/']) {
+    for (const colorScheme of ['light', 'dark']) {
+      for (const width of [390, 1440]) {
+        const context = await browser.newContext({ viewport: { width, height: 900 }, colorScheme, reducedMotion: 'reduce' });
+        const page = await context.newPage();
+        const errors = [];
+        page.on('pageerror', (error) => errors.push(error.message));
+        await page.goto(`${origin}${path}`, { waitUntil: 'networkidle' });
+        await page.locator('img').evaluateAll((images) => Promise.all(images.map(async (image) => {
+          image.loading = 'eager';
+          try { await image.decode(); } catch {}
+        })));
+        assert.deepEqual(errors, [], `${path}: no JavaScript errors`);
+        assert.deepEqual(await page.locator('img').evaluateAll((images) => images.filter((image) => !image.complete || !image.naturalWidth).map((image) => image.src)), [], `${path}: image decoding`);
+        assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${path} ${colorScheme} ${width}: horizontal overflow`);
+        const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+        assert.deepEqual(results.violations.map((violation) => violation.id), [], `${path}: accessibility violations`);
+        if (path.includes('ecosystem/')) {
+          assert.equal(await page.locator('.host-entry').count(), 38);
+          const first = page.locator('.host-entry').first();
+          const initial = await first.evaluate((element) => element.open);
+          await first.locator('summary').focus();
+          await page.keyboard.press('Enter');
+          assert.equal(await first.evaluate((element) => element.open), !initial, 'Host details toggle with keyboard');
+          await page.keyboard.press('Enter');
+          assert.equal(await first.evaluate((element) => element.open), initial, 'Restore details state before screenshot');
+          assert.equal(await first.locator('[data-gate]').count(), 7);
+        }
+        const expectedLocale = path.startsWith('/zh/') ? path.replace('/zh/', '/') : `/zh${path}`;
+        assert.equal(await page.locator('.locale').getAttribute('href'), expectedLocale);
+        if ((width === 390 && colorScheme === 'light') || (width === 1440 && colorScheme === 'dark')) {
+          const name = `${path.replaceAll('/', '-').slice(1, -1)}-${colorScheme}-${width}`;
+          await page.screenshot({ path: resolve(reports, `${name}.png`), fullPage: true });
+        }
+        records.push({ path, colorScheme, width, axeViolations: 0, javascriptErrors: 0, overflow: false, imageDecode: true, keyboardHostDetails: path.includes('ecosystem/'), localeDestination: expectedLocale });
+        await context.close();
+      }
+    }
+  }
   const desktop = await lighthouse(`${origin}/`, { port: debugPort, output: ['json', 'html'], onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'], formFactor: 'desktop', screenEmulation: { mobile: false, width: 1440, height: 900, deviceScaleFactor: 1, disabled: false } });
   const mobile = await lighthouse(`${origin}/zh/`, { port: debugPort, output: ['json', 'html'], onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'] });
   for (const [name, result] of [['desktop', desktop], ['mobile', mobile]]) {
@@ -80,7 +119,7 @@ try {
     assert(scores.seo === 100, `${name}: Lighthouse SEO below 100`);
   }
   await writeFile(resolve(reports, 'headless-validation.json'), JSON.stringify({ checkedAtUtc: new Date().toISOString(), method: 'headless automated; isolated Chromium test process, not dcc-cua live-browser acceptance', normalMotionSmokeTests: 2, lighthouseScores, records }, null, 2));
-  console.log('Headless automated checks passed for both languages, both themes, and 390/768/1440px widths.');
+  console.log('Headless automated checks passed: 12 homepage combinations, 16 matrix/principles combinations, and 2 normal-motion smoke tests.');
 } finally {
   await browser.close();
   await new Promise((done) => server.close(done));
