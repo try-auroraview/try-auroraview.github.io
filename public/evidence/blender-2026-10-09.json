@@ -1,0 +1,379 @@
+{
+  "schema_version": 1,
+  "kind": "recorded_host_probe_summary",
+  "evidence_date": "2026-10-09",
+  "evidence_timezone": "Asia/Shanghai",
+  "source": {
+    "repository": "https://github.com/try-auroraview/auroraview-blender",
+    "merged_commit": "1401b6fec2fdfeae43d565eb8f1428b1699e6260",
+    "tested_commit": "51c0a9ad56e27dd95adf72bddce4c928e1bbda6b",
+    "tree": "331982a235d2ee6e212d3fe35f119bfbf8c52fa2",
+    "tested_and_merged_trees_identical": true,
+    "extension_payload_commit": "78909bccbe924d22f04b0900105e3e9369d33c0d",
+    "core_commit": "82bb8ed886ef77de5e281a66139e0c06f0738792",
+    "ci": "https://github.com/try-auroraview/auroraview-blender/actions/runs/37834498577"
+  },
+  "host": {
+    "platform": "Windows x64",
+    "blender": "5.1.1",
+    "blender_build_hash": "b70da489d7f4",
+    "python": "3.13.9"
+  },
+  "artifacts": {
+    "distribution": "experimental local candidates; no Blender release asserted",
+    "extension_sha256": "b0ab938ce6bbdf213162ef508f6446955d1cf6890c486bfb5f58b8a5980010f1",
+    "client_wheel_sha256": "c3a41a77513f9769e3308ce7bb402ecde628fc009b7afc91e99951d65873fee6",
+    "renderer_manifest_sha256": "da667a7326c0402b9be85b0c1b4a5fb5c1a61921ffc40b0d8f4018522a530ffb"
+  },
+  "public_dependency": {
+    "name": "auroraview-dcc-mcp",
+    "version": "0.1.0",
+    "release": "https://github.com/try-auroraview/auroraview/releases/tag/auroraview-dcc-mcp-v0.1.0-preview.1",
+    "wheel_sha256": "450b74fd7c11c9247f076b456197a4c5b299c9edb34f851fda5ccc5cf1bf3558",
+    "jsonschema": "4.26.0"
+  },
+  "probes": [
+    {
+      "name": "native HTML region lifecycle",
+      "scope": "native_extension_lifecycle_not_interactive_acceptance",
+      "started_at": "2026-10-08T19:23:49.899457+00:00",
+      "completed_at": "2026-10-08T19:24:22.121195+00:00",
+      "passed_checks": 36,
+      "failed_checks": 0,
+      "checks": [
+        {
+          "name": "real_blender_51_gui",
+          "passed": true
+        },
+        {
+          "name": "offscreen_not_preimported",
+          "passed": true
+        },
+        {
+          "name": "isolated_user_config",
+          "passed": true
+        },
+        {
+          "name": "isolated_user_scripts",
+          "passed": true
+        },
+        {
+          "name": "isolated_user_extensions",
+          "passed": true
+        },
+        {
+          "name": "isolated_session_recovery_directory",
+          "passed": true
+        },
+        {
+          "name": "create_isolated_extension_repository",
+          "passed": true
+        },
+        {
+          "name": "install_and_enable_actual_extension_zip",
+          "passed": true
+        },
+        {
+          "name": "optional_wheel_imported_from_isolation",
+          "passed": true
+        },
+        {
+          "name": "installed_extension_matches_packaged_source",
+          "passed": true
+        },
+        {
+          "name": "exactly_one_optional_wheel",
+          "passed": true
+        },
+        {
+          "name": "installed_client_matches_packaged_wheel",
+          "passed": true
+        },
+        {
+          "name": "extension_namespace_without_source_alias",
+          "passed": true
+        },
+        {
+          "name": "independent_of_core_native_module",
+          "passed": true
+        },
+        {
+          "name": "extension_enabled",
+          "passed": true
+        },
+        {
+          "name": "public_host_exit_hook_registered",
+          "passed": true
+        },
+        {
+          "name": "idempotent_register",
+          "passed": true
+        },
+        {
+          "name": "two_surfaces_share_one_owned_renderer",
+          "passed": true
+        },
+        {
+          "name": "native_resize_split_completed",
+          "passed": true
+        },
+        {
+          "name": "resized_surface_has_fresh_gpu_upload",
+          "passed": true
+        },
+        {
+          "name": "closing_one_surface_preserves_other_renderer",
+          "passed": true
+        },
+        {
+          "name": "last_surface_close_reaps_owned_renderer",
+          "passed": true
+        },
+        {
+          "name": "close_then_reopen_starts_fresh_owned_renderer",
+          "passed": true
+        },
+        {
+          "name": "owned_renderer_cancel_completes",
+          "passed": true
+        },
+        {
+          "name": "host_timer_releases_cancelled_renderer_generation",
+          "passed": true
+        },
+        {
+          "name": "open_after_cancel_starts_fresh_owned_renderer",
+          "passed": true
+        },
+        {
+          "name": "file_load_disposes_surfaces_and_renderer",
+          "passed": true
+        },
+        {
+          "name": "file_load_restarts_host_scheduler",
+          "passed": true
+        },
+        {
+          "name": "file_load_expires_old_dispatcher",
+          "passed": true
+        },
+        {
+          "name": "unregister_releases_native_surfaces_and_process",
+          "passed": true
+        },
+        {
+          "name": "unregister_stops_scheduler_and_handlers",
+          "passed": true
+        },
+        {
+          "name": "unregister_removes_owned_classes",
+          "passed": true
+        },
+        {
+          "name": "active_module_reload_disposes_previous_generation",
+          "passed": true
+        },
+        {
+          "name": "python_work_stayed_on_main_thread",
+          "passed": true
+        },
+        {
+          "name": "public_host_exit_cleans_resources_before_following_handler",
+          "passed": true
+        },
+        {
+          "name": "normal_exit_cleans_all_owned_renderers_and_surfaces",
+          "passed": true
+        }
+      ],
+      "ui_input_performed": false,
+      "screenshots_taken": false,
+      "host_exit_code": 0,
+      "timed_out": false,
+      "owned_resources_cleaned": true,
+      "original_result_sha256": "ce1a72eb7b4915a74d997a5d272a1df7408c9a41351834ddbdb27a2e68ec08b6",
+      "original_exit_sha256": "b5036440ec009e9b1a9c9ace42438f805ff2577a5118e03eca7464519c02e09b"
+    },
+    {
+      "name": "published ToolSession to SDK to bpy",
+      "scope": "installed_public_toolset_sdk_bpy_api_not_interactive_acceptance",
+      "started_at": "2026-10-08T19:45:00.060961+00:00",
+      "completed_at": "2026-10-08T19:45:19.288879+00:00",
+      "passed_checks": 36,
+      "failed_checks": 0,
+      "checks": [
+        {
+          "name": "real_blender_51_gui",
+          "passed": true
+        },
+        {
+          "name": "isolated_user_config",
+          "passed": true
+        },
+        {
+          "name": "isolated_user_scripts",
+          "passed": true
+        },
+        {
+          "name": "isolated_user_extensions",
+          "passed": true
+        },
+        {
+          "name": "isolated_session_recovery_directory",
+          "passed": true
+        },
+        {
+          "name": "public_wheel_matches_expected_sha256",
+          "passed": true
+        },
+        {
+          "name": "extension_matches_expected_sha256",
+          "passed": true
+        },
+        {
+          "name": "bundle_manifest_matches_expected_sha256",
+          "passed": true
+        },
+        {
+          "name": "public_package_not_preimported",
+          "passed": true
+        },
+        {
+          "name": "public_package_loaded_directly_from_verified_wheel",
+          "passed": true
+        },
+        {
+          "name": "real_jsonschema_from_explicit_dependency_root",
+          "passed": true
+        },
+        {
+          "name": "published_toolset_version",
+          "passed": true
+        },
+        {
+          "name": "create_isolated_extension_repository",
+          "passed": true
+        },
+        {
+          "name": "install_and_enable_verified_extension",
+          "passed": true
+        },
+        {
+          "name": "installed_extension_and_client_are_isolated",
+          "passed": true
+        },
+        {
+          "name": "installed_extension_matches_verified_zip",
+          "passed": true
+        },
+        {
+          "name": "one_packaged_client_wheel",
+          "passed": true
+        },
+        {
+          "name": "client_wheel_matches_expected_sha256",
+          "passed": true
+        },
+        {
+          "name": "installed_client_matches_verified_wheel",
+          "passed": true
+        },
+        {
+          "name": "first_sdk_completed",
+          "passed": true
+        },
+        {
+          "name": "first_sdk_and_actual_bpy_readback",
+          "passed": true
+        },
+        {
+          "name": "first_event_roundtrip_and_js_unsubscribe",
+          "passed": true
+        },
+        {
+          "name": "sdk_mutations_each_have_actual_bpy_readback",
+          "passed": true
+        },
+        {
+          "name": "real_jsonschema_rejects_before_mutation",
+          "passed": true
+        },
+        {
+          "name": "first_close_unsubscribes_without_closing_caller",
+          "passed": true
+        },
+        {
+          "name": "first_close_releases_owned_renderer",
+          "passed": true
+        },
+        {
+          "name": "second_sdk_completed",
+          "passed": true
+        },
+        {
+          "name": "second_sdk_and_actual_bpy_readback",
+          "passed": true
+        },
+        {
+          "name": "second_event_roundtrip_and_js_unsubscribe",
+          "passed": true
+        },
+        {
+          "name": "second_close_unsubscribes_without_closing_caller",
+          "passed": true
+        },
+        {
+          "name": "second_close_releases_owned_renderer",
+          "passed": true
+        },
+        {
+          "name": "both_host_subscriptions_disposed_once",
+          "passed": true
+        },
+        {
+          "name": "caller_closes_lease_and_owner_stays_usable",
+          "passed": true
+        },
+        {
+          "name": "original_caller_closes_tool_owner",
+          "passed": true
+        },
+        {
+          "name": "all_business_calls_readbacks_and_events_on_main_thread",
+          "passed": true
+        },
+        {
+          "name": "normal_exit_retains_no_owned_resources",
+          "passed": true
+        }
+      ],
+      "ui_input_performed": false,
+      "screenshots_taken": false,
+      "host_exit_code": 0,
+      "timed_out": false,
+      "owned_resources_cleaned": true,
+      "original_result_sha256": "955af1b48dfc6a5abd965318ca29576702605a87e1f791ffe105e4b4f23b4387",
+      "original_exit_sha256": "12f81a46ddfd5572b4a794d8a44ff850cba610e99b3b9b9220fae94c4ca26360"
+    }
+  ],
+  "scene_readback": {
+    "name": "SharedBackendVerified",
+    "location": [
+      1.25,
+      -2.5,
+      3.75
+    ],
+    "frame": 17,
+    "invalid_input_rejected_before_mutation": true,
+    "callbacks_and_readbacks_on_owner_thread": true
+  },
+  "not_covered": [
+    "Full mouse, keyboard, Chinese IME, focus and multi-window interaction",
+    "Foreground normal Stop and user acceptance",
+    "DCC-MCP transport discovery in these probes",
+    "Stable public Blender package or renderer release",
+    "Linux and macOS Web routes"
+  ],
+  "subscription_contract": "The published ToolSession requires synchronous host unsubscribe; raise on failure. False or awaitable return values are not supported cleanup signals.",
+  "publication": "Selected non-sensitive fields from completed receipts; no host probe was rerun for this summary. Local paths, PIDs, native pointers and unrelated process data are omitted."
+}

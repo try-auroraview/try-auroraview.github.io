@@ -28,7 +28,7 @@ test('every catalog host has seven localized gates without assuming AuroraView a
     for (const gate of Object.values(record.gates)) {
       assert(ecosystem.statusLabels[gate.status]);
       assert(gate.en && gate.zh);
-      if (gate.url) assert(gate.url.startsWith('https://'));
+      if (gate.url) assert(gate.url.startsWith('https://') || gate.url.startsWith('/evidence/'));
     }
     if (!ecosystem.integrations[host.id]) {
       assert.equal(record.gates.native.status, 'target');
@@ -37,7 +37,7 @@ test('every catalog host has seven localized gates without assuming AuroraView a
   }
   assert.throws(() => hostRecord('missing-host'), /Unknown ecosystem host/);
   assert(focusHosts.some((host) => host.id === 'unity'));
-  assert.equal(hostRecord('unreal').gates.native.status, 'blocked');
+  assert.equal(hostRecord('unreal').gates.native.status, 'pending');
 });
 
 test('principles preserve communication directions, source links, and localized flow', () => {
