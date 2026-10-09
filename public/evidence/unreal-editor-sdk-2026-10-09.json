@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "kind": "recorded_host_probe_summary",
+  "evidence_date": "2026-10-09",
+  "evidence_timezone": "Asia/Shanghai",
+  "source": {
+    "repository": "https://github.com/try-auroraview/auroraview-unreal",
+    "main_commit_at_review": "03815487dea96c88f5e62711dfff37377e75da8d",
+    "tested_commit": "7f962b431360d67f9410b0e9563c410e67d4425e",
+    "sdk_source_commit": "7f962b431360d67f9410b0e9563c410e67d4425e",
+    "native_source_commit": "7f962b431360d67f9410b0e9563c410e67d4425e",
+    "pull_request": "https://github.com/try-auroraview/auroraview-unreal/pull/7",
+    "merged": false,
+    "shared_tool_contract_source": "https://github.com/try-auroraview/auroraview-unreal/blob/7f962b431360d67f9410b0e9563c410e67d4425e/tests/shared_demo_tools_test.py"
+  },
+  "host": {
+    "platform": "Windows x64",
+    "context": "editor",
+    "engine_version": "5.7.4-51494982+++UE5+Release-5.7",
+    "embedded_python": "3.11.8"
+  },
+  "probe": {
+    "status": "pass",
+    "recorded_at": "2026-10-09T00:35:23.218799+00:00",
+    "observed_shared_package_version": "0.1.0",
+    "engine_ready": true,
+    "native_control": true,
+    "embedded_python_probe": "pass",
+    "service_created": false,
+    "ui_actions": false,
+    "scene_mutation": false,
+    "reverse_results": [false, 0],
+    "reverse_results_meaning": "Successful return values preserved without conversion; these are not failure flags or call counts.",
+    "callbacks_on_owner_thread": true,
+    "original_catalog_preserved": true,
+    "borrowed_toolset_preserved": true,
+    "cleanup_errors": [],
+    "owned_editor_survived": true
+  },
+  "provenance": {
+    "original_receipt_sha256": "9ab45fb3df4d8a85b33cb9314490fa064e176320bcbdb4d8780fbe8e51b01b2c",
+    "shared_package_artifact_provenance": "The receipt records runtime version 0.1.0 without a public wheel digest; public artifact provenance is unverified.",
+    "dcc_mcp_core_consumption": "Not established by this receipt.",
+    "selection": "Allowlisted fields from the recorded Editor SDK consumer result; no new host execution was performed for this summary."
+  },
+  "native_ci": {
+    "tested_commit": "7f962b431360d67f9410b0e9563c410e67d4425e",
+    "engine": "UE 5.7 Win64",
+    "job": "https://github.com/try-auroraview/auroraview-unreal/actions/runs/37863972158/job/113606158343",
+    "conclusion": "success",
+    "native_build": "pass",
+    "cook_package_game_runtime": "pass",
+    "offline_demo": {
+      "distribution": "GitHub Actions artifact; no release asserted",
+      "url": "https://github.com/try-auroraview/auroraview-unreal/actions/runs/37863972158/artifacts/11589859140",
+      "github_artifact_digest": "sha256:bedeafeda4720db27e4eb20bc192aa0ea392b572de14b6869d1e215175f31e53",
+      "artifact_bytes_read_back_for_this_summary": false
+    }
+  },
+  "separate_refresh_candidate": {
+    "pull_request": "https://github.com/try-auroraview/auroraview-unreal/pull/8",
+    "tested_commit": "a6d2e8032438237cd83bea90ed7ad3b36c30c48c",
+    "draft": true,
+    "merged": false,
+    "source_ci": "https://github.com/try-auroraview/auroraview-unreal/actions/runs/37869686024",
+    "source_ci_conclusion": "success",
+    "native_refresh_and_interaction_established_by_this_summary": false
+  },
+  "not_certified": [
+    "shared-tool scene mutation, scene readback and Undo",
+    "native Editor docking, pixels, input and window lifecycle",
+    "interactive refresh, rendering performance and recording",
+    "UE 5.8 acceptance for these candidates",
+    "release publication or user acceptance"
+  ]
+}
